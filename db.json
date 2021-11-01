@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Olesia",
+      "favRecipes": [1, 2, 3]
+    },
+    {
+      "id": 2,
+      "name": "Tove",
+      "favRecipes": [2]
+    }
+  ],
+  "recipes": [
+    {
+      "id": 1,
+      "title": "Vegan Mashed Potatoes",
+      "text": "Boil and mash the potatoes.",
+      "image": "mash.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Vegan Boiled Carrots",
+      "text": "Boil the carrots.",
+      "image": "carrots.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Vegan Cream Cheese",
+      "text": "Blend equal amounts of cashews and water in a high-speed blender together with a dash of lemon juice and a pinch of salt. Add water or chashews to adjust thickness of cream cheese.",
+      "image": "creamcheese.jpg"
+    }
+  ]
+}
