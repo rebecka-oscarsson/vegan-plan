@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Start from './components/Start';
 
 const App = () => {
   const fetchData = async () => {
@@ -11,7 +12,11 @@ const App = () => {
     fetchData();
   }, []);
 
-  return <div>hello</div>;
+  return (
+  <>
+    <Start />
+  </>
+    );
 };
 
 export default App;
