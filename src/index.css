@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -6,16 +6,16 @@
   padding: 0;
 }
 :root {
-  --color-green: #859573; 
-  --color-yellow: #F8FD6A;
-  --color-yellow-light: #FBFDC9;
-  --color-beige: #F0F0E6;
-  --color-grey: #F7F7F7;
+  --color-green: #859573;
+  --color-yellow: #f8fd6a;
+  --color-yellow-light: #fbfdc9;
+  --color-beige: #f0f0e6;
+  --color-grey: #f7f7f7;
   --color-black: #000000;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   background-color: var(--color-beige);
 }
@@ -31,10 +31,9 @@ h2 {
   font-weight: 400;
 }
 
-
 /* START */
 
-.header-start { 
+.header-start {
   background-image: url(./img/bg-start.jpg);
   background-position: center;
   background-size: cover;

@@ -1,5 +1,10 @@
 import { useEffect } from 'react';
 import Start from './components/Start';
+import Navbar from './components/Navbar';
+import Recipes from './components/Recipes';
+import Filter from './components/Filter';
+import Footer from './components/Footer';
+import Search from './components/Search';
 
 const App = () => {
   const fetchData = async () => {
@@ -14,7 +19,12 @@ const App = () => {
 
   return (
     <>
+      <Navbar />
       <Start />
+      <Search />
+      <Filter />
+      <Recipes />
+      <Footer />
     </>
   );
 };
