@@ -3,7 +3,7 @@ import Start from './components/Start';
 
 const App = () => {
   const fetchData = async () => {
-    const response = await fetch('http://localhost:5000/recipes');
+    const response = await fetch('http://localhost:3001/recipes');
     const data = await response.json();
     console.log('myData', data);
   };
@@ -13,10 +13,10 @@ const App = () => {
   }, []);
 
   return (
-  <>
-    <Start />
-  </>
-    );
+    <>
+      <Start />
+    </>
+  );
 };
 
 export default App;
