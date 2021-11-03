@@ -1,5 +1,5 @@
-const Recipes = () => {
-  return <h1>Recipes</h1>;
+const Recipes = ({ recipes }) => {
+  return <>{console.log('recipes', recipes)}</>;
 };
 
 export default Recipes;
