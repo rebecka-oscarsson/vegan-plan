@@ -18,7 +18,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    setRecipes(fetchData());
+    fetchData().then(data=>{setRecipes(data)})
   }, []);
 
   return (
