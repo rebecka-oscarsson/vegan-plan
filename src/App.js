@@ -5,20 +5,17 @@ import Recipes from './components/Recipes';
 import Filter from './components/Filter';
 import Footer from './components/Footer';
 import Search from './components/Search';
+import fetchData from './components/fetchData';
+import React from 'react';
+
+//nyckeln till spoonacular
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
-
-  const fetchData = async () => {
-    const response = await fetch('http://localhost:3001/recipes');
-
-    const data = await response.json();
-    console.log('myData', data);
-    return data;
-  };
-
+  
   useEffect(() => {
-    fetchData().then(data=>{setRecipes(data)})
+    fetchData('https://api.spoonacular.com/recipes/complexSearch?apiKey=' + apiKey + '&diet=vegan&number=5').then(data=>{setRecipes(data.results)})
   }, []);
 
   return (
