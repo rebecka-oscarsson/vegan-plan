@@ -33,12 +33,12 @@ h2 {
 
 /* START */
 
-.header-start {
+ .header-start {
   background-image: url(./img/bg-start.jpg);
   background-position: center;
   background-size: cover;
 }
-
+/*
 .start-box {
   background-image: url(./img/start-box-bg@2x.png);
   height: 100%;
@@ -48,7 +48,7 @@ h2 {
   background-size: 900px 600px;
   padding: 30vh 0px;
   color: var(--color-green);
-}
+} */
 
 .start-h2 {
   color: var(--color-green);
