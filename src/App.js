@@ -15,14 +15,16 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
   
   useEffect(() => {
-    fetchData('https://api.spoonacular.com/recipes/complexSearch?apiKey=' + apiKey + '&diet=vegan&number=5').then(data=>{setRecipes(data.results)})
+    fetchData("http://localhost:3001/results") //tillfälligt för att spara på api-nyckeln
+    // fetchData('https://api.spoonacular.com/recipes/complexSearch?apiKey=' + apiKey + '&diet=vegan&number=5')
+    .then(data=>{setRecipes(data.results)})
   }, []);
 
   return (
     <>
       <Navbar />
       <Start />
-      <Search />
+      <Search setRecipes={setRecipes}/>
       <Filter />
       <Recipes recipes={recipes} />
       <Footer />
