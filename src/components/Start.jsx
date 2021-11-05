@@ -15,8 +15,9 @@ const Start = () => {
         <h1>Mat som gör skillnad<br />– för din hälsa &amp; klimatet</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <span className="text-under"><p>Läs mer</p></span>
+
       </div>
-      <div>
+      <div className="recipes-carousel">
         <h2>Näringsrika och enkla middagsrecept</h2>
       </div>
     </>

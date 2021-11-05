@@ -5,6 +5,14 @@ import Recipes from './components/Recipes';
 import Filter from './components/Filter';
 import Footer from './components/Footer';
 import Search from './components/Search';
+import AboutUs from './components/AboutUs';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 const App = () => {
   const fetchData = async () => {
@@ -19,12 +27,24 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
-      <Start />
-      <Search />
-      <Filter />
-      <Recipes />
-      <Footer />
+      <Router>
+        <nav>
+        <Link to="/"><img src={'./vegan-plan-logo.png'} width={130} alt='Vegan Plan logo'/></Link>
+          <ul>
+            <li><Link to="/recept">Recept</Link></li>
+            <li><Link to="/vegansk-mat">Vegansk mat</Link></li>
+            <li><button><Link to="/mina-sidor">Mina sidor</Link></button></li>
+          </ul>
+        </nav>
+        <div className="main">
+          <Routes>
+          <Route exact path="/" element={<Start />} />
+          <Route path="/recept" element={<Recipes />} />
+          <Route path="/vegansk-mat" element={<AboutUs />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
     </>
   );
 };
