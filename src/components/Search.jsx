@@ -4,7 +4,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 const Search = ({ setRecipes }) => {
   const [inputs, setInputs] = useState({});
-
+ 
   const handleChange = (event) => {
     setInputs((values) => ({
       ...values,
@@ -22,14 +22,16 @@ const Search = ({ setRecipes }) => {
       if (inputs.search) {
         url += "&query="+ inputs.search;
       }
-    //inte klar med att skapa nedanstående keys via onchange
     if (inputs.sugarfree) {
       url += "&excludeIngredients=sugar";
     }
-    if (inputs.meal === "main course") {
-      url += "&type=maincourse";
+    if (inputs.oilfree) {
+      url += "&excludeIngredients=oil";
     }
-    if (inputs.meal === "breakfast") {
+    if (inputs.meal === "lunch" || inputs.meal === "middag") {
+      url += "&type=main_course";
+    }
+    if (inputs.meal === "frukost") {
       url += "&type=breakfast";
     }
     console.log("adress", url)
@@ -60,7 +62,7 @@ const Search = ({ setRecipes }) => {
         value={inputs.search || ""}
         onChange={handleChange}
       />
-      <select value={inputs.meal} onChange={handleChange}>
+      <select value={inputs.meal} onChange={handleChange} name="meal">
         <option value="frukost">frukost</option>
         <option value="lunch">lunch</option>
         <option value="middag">middag</option>
@@ -73,8 +75,24 @@ const Search = ({ setRecipes }) => {
         type="checkbox"
         id="sugarfree"
         name="sugarfree"
-        value={inputs.sugarfree || ""}
-        onChange={handleChange}
+        checked={inputs.sugarfree || false}
+        onChange={() => {
+          setInputs((inputs) => ({
+            ...inputs,
+            sugarfree: !inputs.sugarfree,
+          }));}}
+      />
+      <label htmlFor="oilfree">Fritt från olja</label>
+      <input
+        type="checkbox"
+        id="oilfree"
+        name="oilfree"
+        checked={inputs.oilfree || false}
+        onChange={() => {
+          setInputs((inputs) => ({
+            ...inputs,
+            oilfree: !inputs.oilfree,
+          }));}}
       />
       <input type="submit" value="sök" />
     </form>
