@@ -14,14 +14,40 @@ const Search = ({ setRecipes }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetchData(
+    console.log("inputfält: ", inputs)
+    let url =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
-        apiKey +
-        "&diet=vegan&number=1&query=" +
-        inputs.search
-    ).then((data) => {
-      setRecipes(data.results);
-      console.log("inputfält: ", inputs, "sökresultat: ", data.results);
+      apiKey +
+      "&diet=vegan" 
+      if (inputs.search) {
+        url += "&query="+ inputs.search;
+      }
+    //inte klar med att skapa nedanstående keys via onchange
+    if (inputs.sugarfree) {
+      url += "&excludeIngredients=sugar";
+    }
+    if (inputs.meal === "main course") {
+      url += "&type=maincourse";
+    }
+    if (inputs.meal === "breakfast") {
+      url += "&type=breakfast";
+    }
+    console.log("adress", url)
+    
+    fetchData(url).then((data) => {
+    // testhämtning
+    // "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
+    //   apiKey +
+    //   "&diet=vegan&number=1&query=" +
+    //   inputs.search&type=beverage"
+      let recipes = data.results;
+      //cheap finns ej som sökparameter
+      //det finns som en key men först på andra hämtningen så nedanstående fungerade ej
+      // if (inputs.cheap) {
+      //   recipes = recipes.filter((recipe) => recipe.cheap === true);
+      // }
+      setRecipes(recipes);
+      console.log("sökresultat: ", recipes);
     });
   };
 
@@ -34,14 +60,22 @@ const Search = ({ setRecipes }) => {
         value={inputs.search || ""}
         onChange={handleChange}
       />
-      {/* <label htmlFor="lname">Last name:</label>
+      <select value={inputs.meal} onChange={handleChange}>
+        <option value="frukost">frukost</option>
+        <option value="lunch">lunch</option>
+        <option value="middag">middag</option>
+      </select>
+
+      
+
+      <label htmlFor="sugarfree">Sockerfritt</label>
       <input
-        type="text"
-        id="lname"
-        name="lname"
-        value={inputs.lname || ""}
+        type="checkbox"
+        id="sugarfree"
+        name="sugarfree"
+        value={inputs.sugarfree || ""}
         onChange={handleChange}
-      /> */}
+      />
       <input type="submit" value="sök" />
     </form>
   );
