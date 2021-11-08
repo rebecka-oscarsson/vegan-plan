@@ -13,10 +13,27 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
-  
+  const [oneRecipe, setOneRecipe] = useState([]);
+
   useEffect(() => {
-    fetchData('https://api.spoonacular.com/recipes/complexSearch?apiKey=' + apiKey + '&diet=vegan&number=5').then(data=>{setRecipes(data.results)})
+    fetchData(
+      'https://api.spoonacular.com/recipes/complexSearch?apiKey=' +
+        apiKey +
+        '&diet=vegan&number=5'
+    ).then((data) => {
+      setRecipes(data.results);
+    });
   }, []);
+
+  // handler fired when one recipe clicked
+  const displayOneRecipe = (obj) => {
+    setOneRecipe([obj]);
+  };
+
+  // handler fired when 'back to all recipes link' clicked
+  const emptyOneRecipe = () => {
+    setOneRecipe([]);
+  };
 
   return (
     <>
@@ -24,7 +41,12 @@ const App = () => {
       <Start />
       <Search />
       <Filter />
-      <Recipes recipes={recipes} />
+      <Recipes
+        recipes={recipes}
+        displayOne={displayOneRecipe}
+        oneRecipe={oneRecipe}
+        emptyOneRecipe={emptyOneRecipe}
+      />
       <Footer />
     </>
   );
