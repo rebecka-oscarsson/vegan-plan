@@ -6,6 +6,7 @@ import Filter from './components/Filter';
 import Footer from './components/Footer';
 import Search from './components/Search';
 import AboutUs from './components/AboutUs';
+import SingleRecipe from './components/SingleRecipe';
 
 import {
   BrowserRouter as Router,
@@ -13,6 +14,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
 
 const App = () => {
   const fetchData = async () => {
@@ -33,13 +35,14 @@ const App = () => {
           <ul>
             <li><Link to="/recept">Recept</Link></li>
             <li><Link to="/vegansk-mat">Vegansk mat</Link></li>
-            <li><button><Link to="/mina-sidor">Mina sidor</Link></button></li>
+            <li><button className="btn-myPage"><Link to="/mina-sidor">Mina sidor</Link></button></li>
           </ul>
         </nav>
         <div className="main">
           <Routes>
           <Route exact path="/" element={<Start />} />
           <Route path="/recept" element={<Recipes />} />
+          <Route path="/recept/:id" element={<SingleRecipe />} />
           <Route path="/vegansk-mat" element={<AboutUs />} />
           </Routes>
         </div>
