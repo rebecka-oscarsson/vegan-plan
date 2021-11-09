@@ -3,12 +3,10 @@ import { useEffect, useState } from 'react';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const SingleRecipe = (props) => {
-  console.log(props)
   const [instructions, setInstructions] = useState();
   const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
-
     fetchData(
       'https://api.spoonacular.com/recipes/' +
       props.oneRecipe[0].id +
@@ -22,7 +20,6 @@ const SingleRecipe = (props) => {
       {setInstructions(data.summary)}
       setIngredients(data.extendedIngredients)
     });
-
   }, []);
 
   return (
