@@ -395,3 +395,13 @@ button {
   margin: 5px;
 }
 
+/***Recipes View***/
+.Recipe-Grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
+}
+.Recipe-Card {
+  margin: 16px 40px;
+}
