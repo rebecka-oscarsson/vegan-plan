@@ -69,7 +69,7 @@ const App = () => {
               }
             />
             <Route path="/recept/:id" element={<SingleRecipe />} />
-            <Route path="/vegansk-mat" element={<AboutUs />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route
               path="/registrate"
               element={<Registrate onAddNewUser={onAddNewUser} />}
