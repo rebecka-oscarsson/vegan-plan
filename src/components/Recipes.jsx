@@ -19,8 +19,8 @@ const Recipes = (props) => {
   } else {
     return (
       <>
-      <div className="Recipe-Grid">
       <Search setRecipes={props.setRecipes}/>
+      <div className="Recipe-Grid">
         {props.recipes.map((recipe) => (
             <figure className="Recipe-Card"
               key={recipe.id}
