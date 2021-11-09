@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Recipes from './components/Recipes';
 import Filter from './components/Filter';
 import Footer from './components/Footer';
-import Search from './components/Search';
+
 
 import AboutUs from './components/AboutUs';
 import SingleRecipe from './components/SingleRecipe';
@@ -65,12 +65,12 @@ const App = () => {
         displayOne={displayOneRecipe}
         oneRecipe={oneRecipe}
         emptyOneRecipe={emptyOneRecipe}
+        setRecipes={setRecipes}
       />} />
           <Route path="/recept/:id" element={<SingleRecipe />} />
           <Route path="/vegansk-mat" element={<AboutUs />} />
           </Routes>
         </div>
-        <Search setRecipes={setRecipes}/>
         <Footer />
       </Router>
 

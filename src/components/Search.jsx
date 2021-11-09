@@ -54,48 +54,54 @@ const Search = ({ setRecipes }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="filter">
-      <label htmlFor="search">Sök recept</label>
-      <input
-        type="text"
-        name="search"
-        value={inputs.search || ""}
-        onChange={handleChange}
-      />
-      <select value={inputs.meal} onChange={handleChange} name="meal">
-        <option value="frukost">frukost</option>
-        <option value="lunch">lunch</option>
-        <option value="middag">middag</option>
-      </select>
+    <div className="search-container">
+      <form onSubmit={handleSubmit} className="filter">
+        <label htmlFor="search"><h2>Sök recept</h2></label>
+        <input
+          type="text"
+          name="search"
+          value={inputs.search || ""}
+          onChange={handleChange}
+        />
+        <input type="submit" value="sök" className="btn-search" /><br />
+        <p>FILTRERA</p>
+        <select value={inputs.meal} onChange={handleChange} name="meal">
+          <option value="frukost">frukost</option>
+          <option value="lunch">lunch</option>
+          <option value="middag">middag</option>
+        </select>
 
-      
-
-      <label htmlFor="sugarfree">Sockerfritt</label>
-      <input
-        type="checkbox"
-        id="sugarfree"
-        name="sugarfree"
-        checked={inputs.sugarfree || false}
-        onChange={() => {
-          setInputs((inputs) => ({
-            ...inputs,
-            sugarfree: !inputs.sugarfree,
-          }));}}
-      />
-      <label htmlFor="oilfree">Fritt från olja</label>
-      <input
-        type="checkbox"
-        id="oilfree"
-        name="oilfree"
-        checked={inputs.oilfree || false}
-        onChange={() => {
-          setInputs((inputs) => ({
-            ...inputs,
-            oilfree: !inputs.oilfree,
-          }));}}
-      />
-      <input type="submit" value="sök" />
-    </form>
+        
+        <input
+          type="checkbox"
+          id="sugarfree"
+          name="sugarfree"
+          className="btn-filter"
+          checked={inputs.sugarfree || false}
+          onChange={() => {
+            setInputs((inputs) => ({
+              ...inputs,
+              sugarfree: !inputs.sugarfree,
+            }));}}
+        />
+        <label htmlFor="sugarfree">Sockerfritt</label>
+        
+        <input
+          type="checkbox"
+          id="oilfree"
+          name="oilfree"
+          className="btn-filter"
+          checked={inputs.oilfree || false}
+          onChange={() => {
+            setInputs((inputs) => ({
+              ...inputs,
+              oilfree: !inputs.oilfree,
+            }));}}
+        />
+        <label htmlFor="oilfree">Fritt från olja</label>
+        
+      </form>
+    </div>
   );
 };
 
