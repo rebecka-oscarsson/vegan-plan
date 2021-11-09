@@ -5,6 +5,8 @@ import Recipes from "./components/Recipes";
 import Filter from "./components/Filter";
 import Footer from "./components/Footer";
 import Search from "./components/Search";
+import Registrate from "./components/Registrate";
+import Axios from "axios";
 
 import AboutUs from "./components/AboutUs";
 import SingleRecipe from "./components/SingleRecipe";
@@ -39,6 +41,15 @@ const App = () => {
     setOneRecipe([]);
   };
 
+  useEffect(() => {});
+  // post request till db , sparar i mongoDB
+  const onAddNewUser = (user) => {
+    console.log(user);
+    Axios.post("http://localhost:3002/signup", user).then((res) =>
+      console.log(res.data)
+    );
+  };
+
   return (
     <>
       <Router>
@@ -59,6 +70,10 @@ const App = () => {
             />
             <Route path="/recept/:id" element={<SingleRecipe />} />
             <Route path="/vegansk-mat" element={<AboutUs />} />
+            <Route
+              path="/registrate"
+              element={<Registrate onAddNewUser={onAddNewUser} />}
+            />
           </Routes>
         </div>
         <Search setRecipes={setRecipes} />
