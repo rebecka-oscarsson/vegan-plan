@@ -93,6 +93,7 @@ a:hover, a:active {
 
 /* START */
 
+
 .header-start {
   background: url(./img/header-start2@2x.png) no-repeat bottom;
   background-color: var(--color-yellow-light);
@@ -100,7 +101,7 @@ a:hover, a:active {
   min-height: 550px;
   min-width: 100%
 }
-
+/*
 .start-box {
   background-image: url(./img/start-box-bg@2x.png);
   height: 100%;
@@ -110,7 +111,7 @@ a:hover, a:active {
   background-size: 800px 500px;
   padding: 30vh 0px;
   color: var(--color-green);
-}
+} */
 
 .start-h2 {
   color: var(--color-green);

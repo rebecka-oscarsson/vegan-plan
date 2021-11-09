@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Start from './components/Start';
 import Navbar from './components/Navbar';
 import Recipes from './components/Recipes';
 import Filter from './components/Filter';
 import Footer from './components/Footer';
 import Search from './components/Search';
+
 import AboutUs from './components/AboutUs';
 import SingleRecipe from './components/SingleRecipe';
 
@@ -16,19 +17,40 @@ import {
 } from "react-router-dom";
 
 
+import fetchData from './components/fetchData';
+import React from 'react';
+
+//nyckeln till spoonacular
+const apiKey = process.env.REACT_APP_API_KEY;
+
+
 const App = () => {
-  const fetchData = async () => {
-    const response = await fetch('http://localhost:3001/recipes');
-    const data = await response.json();
-    console.log('myData', data);
-  };
+  const [recipes, setRecipes] = useState([]);
+  const [oneRecipe, setOneRecipe] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    fetchData(
+      'https://api.spoonacular.com/recipes/complexSearch?apiKey=' +
+        apiKey +
+        '&diet=vegan&number=5'
+    ).then((data) => {
+      setRecipes(data.results);
+    });
   }, []);
+
+  // handler fired when one recipe clicked
+  const displayOneRecipe = (obj) => {
+    setOneRecipe([obj]);
+  };
+
+  // handler fired when 'back to all recipes link' clicked
+  const emptyOneRecipe = () => {
+    setOneRecipe([]);
+  };
 
   return (
     <>
+
       <Router>
         <nav>
         <Link to="/"><img src={'./vegan-plan-logo.png'} width={130} alt='Vegan Plan logo'/></Link>
@@ -41,13 +63,20 @@ const App = () => {
         <div className="main">
           <Routes>
           <Route exact path="/" element={<Start />} />
-          <Route path="/recept" element={<Recipes />} />
+          <Route path="/recept" element={<Recipes
+        recipes={recipes}
+        displayOne={displayOneRecipe}
+        oneRecipe={oneRecipe}
+        emptyOneRecipe={emptyOneRecipe}
+      />} />
           <Route path="/recept/:id" element={<SingleRecipe />} />
           <Route path="/vegansk-mat" element={<AboutUs />} />
           </Routes>
         </div>
+        <Search />
         <Footer />
       </Router>
+
     </>
   );
 };
