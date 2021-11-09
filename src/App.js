@@ -29,13 +29,11 @@ const App = () => {
   const [oneRecipe, setOneRecipe] = useState([]);
 
   useEffect(() => {
-    fetchData(
-      'https://api.spoonacular.com/recipes/complexSearch?apiKey=' +
-        apiKey +
-        '&diet=vegan&number=5'
-    ).then((data) => {
-      setRecipes(data.results);
-    });
+
+    fetchData("http://localhost:3001/results") //tillfälligt för att spara på api-nyckeln
+    // fetchData('https://api.spoonacular.com/recipes/complexSearch?apiKey=' + apiKey + '&diet=vegan&number=5')
+    .then(data=>{setRecipes(data.results)})
+
   }, []);
 
   // handler fired when one recipe clicked
@@ -50,7 +48,6 @@ const App = () => {
 
   return (
     <>
-
       <Router>
         <nav>
         <Link to="/"><img src={'./vegan-plan-logo.png'} width={130} alt='Vegan Plan logo'/></Link>
@@ -73,9 +70,10 @@ const App = () => {
           <Route path="/vegansk-mat" element={<AboutUs />} />
           </Routes>
         </div>
-        <Search />
+        <Search setRecipes={setRecipes}/>
         <Footer />
       </Router>
+
 
     </>
   );
