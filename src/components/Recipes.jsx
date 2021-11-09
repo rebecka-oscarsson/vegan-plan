@@ -13,21 +13,23 @@ const Recipes = (props) => {
   } else {
     return (
       <>
+      <div className="Recipe-Grid">
         {props.recipes.map((recipe) => (
-          <div
-            key={recipe.id}
-            onClick={() => {
-              props.displayOne({
-                id: recipe.id,
-                image: recipe.image,
-                title: recipe.title,
-              });
-            }}
-          >
-            <p>{recipe.title}</p>
-            <img src={recipe.image} />
-          </div>
-        ))}
+            <figure className="Recipe-Card"
+              key={recipe.id}
+              onClick={() => {
+                props.displayOne({
+                  id: recipe.id,
+                  image: recipe.image,
+                  title: recipe.title,
+                });
+              }}
+              >
+              <img src={recipe.image} />
+              <figcaption>{recipe.title}</figcaption>
+            </figure>
+          ))}
+      </div>
       </>
     );
   }
