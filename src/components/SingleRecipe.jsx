@@ -5,6 +5,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 const SingleRecipe = (props) => {
   console.log(props)
   const [instructions, setInstructions] = useState();
+  const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
 
@@ -14,10 +15,16 @@ const SingleRecipe = (props) => {
         '/information?apiKey=' +
         apiKey
     ).then((data) => {
-      setInstructions(data.instructions)
+      console.log("SingleRecipe har fetchat detta: ", data)
+      if(data.instructions)
+      {setInstructions(data.instructions)}
+      else
+      {setInstructions(data.summary)}
+      setIngredients(data.extendedIngredients)
     });
 
   }, []);
+
   return (
     <>
       <h2>{props.oneRecipe[0].title}</h2>
@@ -32,7 +39,16 @@ const SingleRecipe = (props) => {
         </a>
       </p>
       <img src={props.oneRecipe[0].image} />
-      {instructions}
+      <h3>instructions</h3>
+      <div dangerouslySetInnerHTML={{__html: instructions}}></div>
+      <h3>ingredients</h3>
+      <ul>
+      {ingredients.map((ingredient) => (
+          <li>
+            {ingredient.originalString}
+          </li>
+        ))}
+      </ul>
     </>
   );
 };

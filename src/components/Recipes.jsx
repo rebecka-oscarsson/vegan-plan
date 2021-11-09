@@ -4,16 +4,16 @@ import SingleRecipe from './SingleRecipe';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const Recipes = (props) => {
-  function getRecipe(id) {
-    fetchData(
-      'https://api.spoonacular.com/recipes/' +
-        id +
-        '/information?apiKey=' +
-        apiKey
-    ).then((data) => {
-      console.log('receptet du klickade på: ', data);
-    });
-  }
+  // function getRecipe(id) {
+  //   fetchData(
+  //     'https://api.spoonacular.com/recipes/' +
+  //       id +
+  //       '/information?apiKey=' +
+  //       apiKey
+  //   ).then((data) => {
+  //     console.log('receptet du klickade på: ', data);
+  //   });
+  // }
   if (props.oneRecipe.length == 1) {
     return (
       <SingleRecipe
