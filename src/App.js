@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import Start from "./components/Start";
 import Navbar from "./components/Navbar";
 import Recipes from "./components/Recipes";
-import Filter from "./components/Filter";
 import Footer from "./components/Footer";
-import Search from "./components/Search";
 import Registrate from "./components/Registrate";
 import Axios from "axios";
+
 
 import AboutUs from "./components/AboutUs";
 import SingleRecipe from "./components/SingleRecipe";
@@ -65,6 +64,7 @@ const App = () => {
                   displayOne={displayOneRecipe}
                   oneRecipe={oneRecipe}
                   emptyOneRecipe={emptyOneRecipe}
+                  setRecipes={setRecipes}
                 />
               }
             />
@@ -76,7 +76,6 @@ const App = () => {
             />
           </Routes>
         </div>
-        <Search setRecipes={setRecipes} />
         <Footer />
       </Router>
     </>

@@ -1,18 +1,25 @@
 import SingleRecipe from './SingleRecipe';
+import Search from './Search';
+import { useState } from 'react';
 
 const Recipes = (props) => {
-  
+  const [recipes, setRecipes] = useState([]);
+
   if (props.oneRecipe.length == 1) {
     return (
+      <>
+      <Search setRecipes={props.setRecipes}/>
       <SingleRecipe
         recipes={props.recipes}
         oneRecipe={props.oneRecipe}
         emptyOneRecipe={props.emptyOneRecipe}
       ></SingleRecipe>
+      </>
     );
   } else {
     return (
       <>
+      <Search setRecipes={props.setRecipes}/>
         {props.recipes.map((recipe) => (
           <div
             key={recipe.id}
