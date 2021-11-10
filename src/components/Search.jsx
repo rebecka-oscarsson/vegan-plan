@@ -55,7 +55,7 @@ const Search = ({ setRecipes }) => {
 
   return (
     <div className="search-container">
-      <form onSubmit={handleSubmit} className="filter">
+      <form onSubmit={handleSubmit} className="filter" align="center">
         <label htmlFor="search"><h2>Sök recept</h2></label>
         <input
           type="text"

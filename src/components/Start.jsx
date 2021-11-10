@@ -20,7 +20,7 @@ const Start = () => {
         </div>
       </div>
       <div className="recipes-carousel">
-        <h4>Näringsrika och enkla middagsrecept</h4>
+        <h4 className="h4-start">Näringsrika och enkla middagsrecept</h4>
       </div>
       <div className="banner">
       </div>

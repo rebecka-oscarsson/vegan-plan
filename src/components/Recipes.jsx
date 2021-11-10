@@ -1,6 +1,7 @@
 import SingleRecipe from './SingleRecipe';
 import Search from './Search';
 import { useState } from 'react';
+import RecipesHeader from './RecipesHeader';
 
 const Recipes = (props) => {
   const [recipes, setRecipes] = useState([]);
@@ -8,6 +9,7 @@ const Recipes = (props) => {
   if (props.oneRecipe.length == 1) {
     return (
       <>
+      <RecipesHeader />
       <Search setRecipes={props.setRecipes}/>
       <SingleRecipe
         recipes={props.recipes}
@@ -19,6 +21,7 @@ const Recipes = (props) => {
   } else {
     return (
       <>
+      <RecipesHeader />
       <Search setRecipes={props.setRecipes}/>
       <div className="Recipe-Grid">
         {props.recipes.map((recipe) => (
