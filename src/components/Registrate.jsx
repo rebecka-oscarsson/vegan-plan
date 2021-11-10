@@ -17,16 +17,15 @@ const Registrate = ({ onAddNewUser }) => {
     };
     onAddNewUser(newUserObj);
 
-    setFullName("")
-    setUserName("")
-    setEmail("")
-    setPassword("")
+    setFullName("");
+    setUserName("");
+    setEmail("");
+    setPassword("");
   };
 
   return (
-   
     <div className="registrate_container">
-        <h1> Registrate</h1>
+      <h1> Registrate</h1>
       <form onSubmit={onAdd}>
         <input
           type="text"
@@ -48,10 +47,9 @@ const Registrate = ({ onAddNewUser }) => {
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input type="submit" value="Save" />
+        <input className="btn" type="submit" value="Save" />
       </form>
     </div>
-  
   );
 };
 

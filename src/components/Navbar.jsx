@@ -11,7 +11,7 @@ function NavBar() {
       <nav className="navbar">
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
-          <img
+            <img
               src={"./vegan-plan-logo.png"}
               width={130}
               alt="Vegan Plan logo"
@@ -60,22 +60,10 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                 <button className="btn-myPage">
-               Mina sidor
-              </button>
+                <button className="btn-myPage">Mina sidor</button>
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/registrate"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                registrate
-              </NavLink>
-            </li>
+            <li className="nav-item"></li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
