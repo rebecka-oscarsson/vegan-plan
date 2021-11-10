@@ -4,8 +4,8 @@ import Navbar from "./components/Navbar";
 import Recipes from "./components/Recipes";
 import Footer from "./components/Footer";
 import Registrate from "./components/Registrate";
+import Login from "./components/Login";
 import Axios from "axios";
-
 
 import AboutUs from "./components/AboutUs";
 import SingleRecipe from "./components/SingleRecipe";
@@ -49,6 +49,12 @@ const App = () => {
     );
   };
 
+  // Post request till db, login
+  const onLogin = (user) => {
+    console.log(user);
+    Axios.post("http://localhost:3002/login", user).then((res) => console.log(res.data))
+  };
+
   return (
     <>
       <Router>
@@ -70,6 +76,7 @@ const App = () => {
             />
             <Route path="/recept/:id" element={<SingleRecipe />} />
             <Route path="/vegansk-mat" element={<AboutUs />} />
+            <Route path="/login" element={<Login onLogin={onLogin} />} />
             <Route
               path="/registrate"
               element={<Registrate onAddNewUser={onAddNewUser} />}

@@ -18,7 +18,7 @@ const Recipes = (props) => {
     );
   } else {
     return (
-      <>
+      <div className="container">
       <Search setRecipes={props.setRecipes}/>
         {props.recipes.map((recipe) => (
           <div
@@ -35,7 +35,7 @@ const Recipes = (props) => {
             <img src={recipe.image} />
           </div>
         ))}
-      </>
+      </div>
     );
   }
 };

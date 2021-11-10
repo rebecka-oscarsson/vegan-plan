@@ -52,17 +52,16 @@ function NavBar() {
                 recepies
               </NavLink>
             </li>
+         
             <li className="nav-item">
               <NavLink
                 exact
-                to="/mina-sidor"
+                to="/login"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                 <button className="btn-myPage">
-               Mina sidor
-              </button>
+                Login
               </NavLink>
             </li>
             <li className="nav-item">
@@ -74,6 +73,19 @@ function NavBar() {
                 onClick={handleClick}
               >
                 registrate
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/mina-sidor"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                 <button className="btn-myPage">
+               Mina sidor
+              </button>
               </NavLink>
             </li>
           </ul>

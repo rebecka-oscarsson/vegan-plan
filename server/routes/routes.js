@@ -18,8 +18,10 @@ router.post("/signup", (req, res) => {
       res.json(err);
     });
 });
-// /app/signin
-//router.get("/signin", (req, res) => {}
+// // /app/login
+// router.get("/login", (req, res) => {
+//   let result = 
+// })
 
 
 module.exports = router;
