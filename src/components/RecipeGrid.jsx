@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import SingleRecipe2 from './SingleRecipe2';
 
-const RecipeGrid = ({recipes}) => {
+const RecipeGrid = ({recipes, limitRecipes}) => {
 const [clickedRecipe, setClickedRecipe] = useState();
     
-recipes = recipes.slice(0, 4);
+if (limitRecipes) {recipes = recipes.slice(0, 4)};
     
     if (!clickedRecipe)
     {return (<div className="Recipe-Grid">

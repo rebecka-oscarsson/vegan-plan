@@ -66,7 +66,7 @@ const App = () => {
         <Navbar />
         <div className='main'>
           <Routes>
-            <Route exact path='/' element={<Start />} />
+            <Route exact path='/' element={<Start recipes={recipes}/>} />
             <Route
               path='/recept'
               element={
