@@ -5,6 +5,7 @@ import Recipes from "./components/Recipes";
 import Footer from "./components/Footer";
 import Registrate from "./components/Registrate";
 import Axios from "axios";
+import MyPages from "./components/MyPages";
 
 
 import AboutUs from "./components/AboutUs";
@@ -70,6 +71,7 @@ const App = () => {
             />
             <Route path="/recept/:id" element={<SingleRecipe />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/mina-sidor" element={<MyPages />} />
             <Route
               path="/registrate"
               element={<Registrate onAddNewUser={onAddNewUser} />}
