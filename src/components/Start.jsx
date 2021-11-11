@@ -1,7 +1,7 @@
 import React from 'react';
 import RecipeGrid from './RecipeGrid';
 
-const Start = ({recipes}) => {
+const Start = ({recipes, setOneRecipe}) => {
   return (
     <>
       <div className="header-start">
@@ -22,7 +22,7 @@ const Start = ({recipes}) => {
       </div>
       <div className="recipes-carousel">
         <h4 className="h4-start">Näringsrika och enkla middagsrecept</h4>
-        <RecipeGrid recipes={recipes} limitRecipes={true}/>
+        <RecipeGrid recipes={recipes} setOneRecipe = {setOneRecipe} limitRecipes={true}/>
       </div>
       <div className="banner">
       </div>

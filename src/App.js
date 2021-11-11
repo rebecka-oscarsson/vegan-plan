@@ -22,8 +22,10 @@ import React from 'react';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const App = () => {
+  //state med hämtade recept i array
   const [recipes, setRecipes] = useState([]);
-  const [oneRecipe, setOneRecipe] = useState([]);
+  // state som sparar recept användaren klickat på;
+  const [oneRecipe, setOneRecipe] = useState("")
 
   useEffect(() => {
     fetchData('http://localhost:3001/results') //tillfälligt för att spara på api-nyckeln
@@ -32,16 +34,6 @@ const App = () => {
         setRecipes(data.results);
       });
   }, []);
-
-  // handler fired when one recipe clicked
-  const displayOneRecipe = (obj) => {
-    setOneRecipe([obj]);
-  };
-
-  // handler fired when 'back to all recipes link' clicked
-  const emptyOneRecipe = () => {
-    setOneRecipe([]);
-  };
 
   useEffect(() => {});
   // post request till db , sparar i mongoDB
@@ -66,16 +58,15 @@ const App = () => {
         <Navbar />
         <div className='main'>
           <Routes>
-            <Route exact path='/' element={<Start recipes={recipes}/>} />
+            <Route exact path='/' element={<Start recipes={recipes} setOneRecipe = {setOneRecipe}/>} />
             <Route
               path='/recept'
               element={
                 <Recipes
-                  recipes={recipes}
-                  displayOne={displayOneRecipe}
-                  oneRecipe={oneRecipe}
-                  emptyOneRecipe={emptyOneRecipe}
-                  setRecipes={setRecipes}
+                oneRecipe = {oneRecipe}
+                setOneRecipe = {setOneRecipe}
+                recipes={recipes}
+                setRecipes={setRecipes}
                 />
               }
             />

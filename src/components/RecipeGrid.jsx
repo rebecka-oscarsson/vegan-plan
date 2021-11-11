@@ -1,29 +1,27 @@
-import { useState } from 'react';
-import SingleRecipe2 from './SingleRecipe2';
+import { NavLink } from "react-router-dom";
 
-const RecipeGrid = ({recipes, limitRecipes}) => {
-const [clickedRecipe, setClickedRecipe] = useState();
+const RecipeGrid = ({recipes, setOneRecipe, limitRecipes}) => {
     
 if (limitRecipes) {recipes = recipes.slice(0, 4)};
     
-    if (!clickedRecipe)
     {return (<div className="Recipe-Grid">
         {recipes.map((recipe) => (
+            <NavLink
+              exact
+              to='/recept'
+              onClick={() => {
+              setOneRecipe(recipe.id)
+              }}
+            >         
             <figure className="Recipe-Card"
               key={recipe.id}
-              onClick={() => {
-                setClickedRecipe(recipe.id)
-              }}
               >
               <img src={recipe.image} />
               <figcaption>{recipe.title}</figcaption>
             </figure>
+            </NavLink>
           ))}
       </div>)}
-      else
-      {return <SingleRecipe2
-      clickedRecipe = {clickedRecipe} setClickedRecipe = {setClickedRecipe}
-      />} 
     }
 
     export default RecipeGrid

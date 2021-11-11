@@ -2,14 +2,16 @@ import fetchData from './fetchData';
 import { useEffect, useState } from 'react';
 const apiKey = process.env.REACT_APP_API_KEY;
 
-const SingleRecipe = (props) => {
+const SingleRecipe = ({oneRecipe, setOneRecipe}) => {
   const [instructions, setInstructions] = useState();
   const [ingredients, setIngredients] = useState([]);
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     fetchData(
       'https://api.spoonacular.com/recipes/' +
-        props.oneRecipe[0].id +
+        oneRecipe +
         '/information?apiKey=' +
         apiKey
     ).then((data) => {
@@ -20,22 +22,25 @@ const SingleRecipe = (props) => {
         setInstructions(data.summary);
       }
       setIngredients(data.extendedIngredients);
+      setIngredients(data.extendedIngredients);
+      setTitle(data.title);
+      setImage(data.image);
     });
   }, []);
 
   return (
     <>
       <section className='hero-image'>
-        <img src={props.oneRecipe[0].image} />
+        <img src={image} />
       </section>
 
       <div className='single-recipe-title'>
-        <h1 className='single-recipe-heading'>{props.oneRecipe[0].title}</h1>
+        <h1 className='single-recipe-heading'>{title}</h1>
 
         <div className='single-recipe-btn'>
           <button
             onClick={() => {
-              props.emptyOneRecipe();
+              setOneRecipe();
             }}
           >
             X
@@ -48,7 +53,7 @@ const SingleRecipe = (props) => {
           <h3>ingredients</h3>
           <ul className='ingredient-list'>
             {ingredients.map((ingredient) => (
-              <li>{ingredient.originalString}</li>
+              <li key={ingredient.id}>{ingredient.originalString}</li>
             ))}
           </ul>
         </div>
