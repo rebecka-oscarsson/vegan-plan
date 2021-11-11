@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   background-color: var(--color-grey);
 }
@@ -52,7 +52,7 @@ h4 {
   padding: 20px;
 }
 
-.text-fat{
+.text-fat {
   font-weight: 600;
 }
 
@@ -246,7 +246,6 @@ a:active {
 /* SEARCH */
 
 @media screen and (max-width: 960px) {
- 
   .btn-search {
     margin: 0px;
     padding: 0px;
@@ -254,7 +253,6 @@ a:active {
   input {
     margin: 10px 10px 10px 10px;
   }
-
 }
 .search-container {
   background-color: var(--color-green);
@@ -273,7 +271,7 @@ input {
   margin-right: 30px;
   margin-bottom: 20px;
   margin-top: 10px;
-  font-size:0.8rem;
+  font-size: 0.8rem;
 }
 
 select {
@@ -282,7 +280,7 @@ select {
   border-radius: 20px;
   height: 40px;
   width: 200px;
-  font-size:0.8rem;
+  font-size: 0.8rem;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -309,7 +307,7 @@ input.btn-filter + label {
   background: var(--color-grey);
   color: black;
   padding: 10px 20px;
-  font-size:0.8rem;
+  font-size: 0.8rem;
   cursor: pointer;
   border-radius: 22px;
   margin-left: 20px;
@@ -323,6 +321,57 @@ input.btn-filter:checked + label {
   background: var(--color-yellow);
 }
 
+/* SINGLE RECIPE */
+section.hero-image img {
+  /*width: 100%; */
+  object-fit: cover;
+  object-position: center;
+  height: 65vh;
+  width: 100%;
+}
+
+h1.single-recipe-heading {
+  color: var(--color-black);
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.single-recipe-btn {
+  transform: scale(1.5);
+  margin-top: 1rem;
+}
+
+.single-recipe-title {
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem;
+  margin-top: 6rem;
+}
+
+.single-recipe-container {
+  margin: 4rem;
+  display: flex;
+  text-align: left;
+  line-height: 2;
+}
+
+.ingredients {
+  width: 50%;
+}
+
+.ingredients h3,
+.instructions h3 {
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.instructions {
+  width: 50%;
+}
+
+.ingredient-list li {
+  display: block;
+}
 
 /* ABOUT */
 
@@ -339,15 +388,12 @@ input.btn-filter:checked + label {
   padding-top: 20vh;
 }
 
-
-
 .about-h1 {
   color: white;
   font-size: 2.5rem;
   font-weight: 400;
   padding: 10px 0px;
 }
-
 
 .about {
   background-color: var(--color-green);
@@ -382,7 +428,6 @@ input.btn-filter:checked + label {
   margin-bottom: 30px;
 }
 
-
 /* FOOTER  */
 
 footer {
@@ -402,7 +447,6 @@ footer {
   display: block;
   list-style-type: disc;
 }
-
 
 /**** navbar *****/
 .navbar {
@@ -427,8 +471,7 @@ footer {
 }
 
 .nav-logo {
-  /* color:  #859573; */
-  color: black;
+  color: #859573;
   align-items: center;
   margin-left: 20px;
   cursor: pointer;
@@ -461,7 +504,7 @@ footer {
 }
 
 .nav-item:after {
-  content: "";
+  content: '';
   display: block;
   height: 3px;
   width: 0;
@@ -515,10 +558,8 @@ footer {
   }
 }
 
-
 /***** login compinent ****/
-.registrate_container >
-form {
+.registrate_container > form {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -526,8 +567,7 @@ form {
   align-items: center;
 }
 
-input >
-button {
+input > button {
   width: 200px;
   height: 30px;
   font-size: 20px;
