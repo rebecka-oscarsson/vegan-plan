@@ -1,27 +1,27 @@
-#Vegan-plan
-hemsida med veganska recept och inspiration om klimatsmarta val.
+Vegan-plan
+hemsida med vegansk recept och inspiration om klimatsmarta val.
 
-##Features
+Features
 Lägg till medlem/registrera sig
 Logga in på "mina-sidor"
 Spara sina favoritrecept
 Se inköpslista samt få inköpslistan enkelt i sin telefon med checkbox funktinalitet
 
-##ramverk
+ramverk
 I detta project har vi andvänt oss utav React .
 
-##Backend
+Backend
 json-server i våran frontend (används inte just nu).
 MongoDB i våran server-map: för att spara users/medlemmar.
 ###installera bakend
 öppna en ny terminal i server-mappen . " npm run devStart "
 
-##API
+API
 https://spoonacular.com/food-api
 
-##installation
+installation
 git clone https://github.com/Antonia-91/vegan-plan.git
 npm install
 npm start
 
-##Authors:
+Authors:
