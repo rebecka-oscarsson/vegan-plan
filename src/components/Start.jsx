@@ -1,4 +1,5 @@
 import React from 'react';
+import RecipeGrid from './RecipeGrid';
 
 const Start = () => {
   return (
@@ -21,6 +22,7 @@ const Start = () => {
       </div>
       <div className="recipes-carousel">
         <h4 className="h4-start">Näringsrika och enkla middagsrecept</h4>
+        <RecipeGrid />
       </div>
       <div className="banner">
       </div>
