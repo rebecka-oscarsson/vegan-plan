@@ -97,6 +97,7 @@ button {
   font-size: 1.2rem;
   font-weight: 600;
   text-transform: none;
+
 }
 
 .btn-middle {
@@ -106,6 +107,7 @@ button {
 
 .saved-items {
   background-color: var(--color-grey);
+
 }
 
 /* NAV  */
@@ -321,6 +323,7 @@ input.btn-filter:checked + label {
   background: var(--color-yellow);
 }
 
+
 /* SINGLE RECIPE */
 section.hero-image img {
   /*width: 100%; */
@@ -372,6 +375,7 @@ h1.single-recipe-heading {
 .ingredient-list li {
   display: block;
 }
+
 
 /* ABOUT */
 
@@ -427,6 +431,12 @@ h1.single-recipe-heading {
 .icon-prenumeration {
   margin-bottom: 30px;
 }
+
+
+.btn:hover {
+  background-color: #859573;
+}
+
 
 /* FOOTER  */
 
