@@ -1,25 +1,22 @@
-import { useEffect, useState } from "react";
-import Start from "./components/Start";
-import Navbar from "./components/Navbar";
-import Recipes from "./components/Recipes";
-import Footer from "./components/Footer";
-import Registrate from "./components/Registrate";
+import { useEffect, useState } from 'react';
+import Start from './components/Start';
+import Navbar from './components/Navbar';
+import Recipes from './components/Recipes';
+import Footer from './components/Footer';
+import Registrate from './components/Registrate';
 
-import Login from "./components/Login";
+import Login from './components/Login';
 
-import Axios from "axios";
-import MyPages from "./components/MyPages";
+import Axios from 'axios';
+import MyPages from './components/MyPages';
 
+import AboutUs from './components/AboutUs';
+import SingleRecipe from './components/SingleRecipe';
 
-import Axios from "axios";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-import AboutUs from "./components/AboutUs";
-import SingleRecipe from "./components/SingleRecipe";
-
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
-import fetchData from "./components/fetchData";
-import React from "react";
+import fetchData from './components/fetchData';
+import React from 'react';
 
 //nyckeln till spoonacular
 const apiKey = process.env.REACT_APP_API_KEY;
@@ -29,7 +26,7 @@ const App = () => {
   const [oneRecipe, setOneRecipe] = useState([]);
 
   useEffect(() => {
-    fetchData("http://localhost:3001/results") //tillfälligt för att spara på api-nyckeln
+    fetchData('http://localhost:3001/results') //tillfälligt för att spara på api-nyckeln
       // fetchData('https://api.spoonacular.com/recipes/complexSearch?apiKey=' + apiKey + '&diet=vegan&number=5')
       .then((data) => {
         setRecipes(data.results);
@@ -50,7 +47,7 @@ const App = () => {
   // post request till db , sparar i mongoDB
   const onAddNewUser = (user) => {
     console.log(user);
-    Axios.post("http://localhost:3002/signup", user).then((res) =>
+    Axios.post('http://localhost:3002/signup', user).then((res) =>
       console.log(res.data)
     );
   };
@@ -58,7 +55,7 @@ const App = () => {
   // Post request till db, login
   const onLogin = (user) => {
     console.log(user);
-    Axios.post("http://localhost:3002/login", user).then((res) =>
+    Axios.post('http://localhost:3002/login', user).then((res) =>
       console.log(res.data)
     );
   };
@@ -67,11 +64,11 @@ const App = () => {
     <>
       <Router>
         <Navbar />
-        <div className="main">
+        <div className='main'>
           <Routes>
-            <Route exact path="/" element={<Start />} />
+            <Route exact path='/' element={<Start />} />
             <Route
-              path="/recept"
+              path='/recept'
               element={
                 <Recipes
                   recipes={recipes}
@@ -82,16 +79,15 @@ const App = () => {
                 />
               }
             />
-            <Route path="/recept/:id" element={<SingleRecipe />} />
-            <Route path="/about" element={<AboutUs />} />
+            <Route path='/recept/:id' element={<SingleRecipe />} />
+            <Route path='/about' element={<AboutUs />} />
 
-            <Route path="/login" element={<Login onLogin={onLogin} />} />
+            <Route path='/login' element={<Login onLogin={onLogin} />} />
 
-
-            <Route path="/mina-sidor" element={<MyPages />} />
+            <Route path='/mina-sidor' element={<MyPages />} />
 
             <Route
-              path="/registrate"
+              path='/registrate'
               element={<Registrate onAddNewUser={onAddNewUser} />}
             />
           </Routes>
