@@ -1,6 +1,7 @@
 import React from 'react';
 import ShoppingList from './ShoppingList';
 import Saved from './Saved';
+import FavoriteRecipes from './FavoriteRecipes';
 
 const MyPages = () => {
   return (
@@ -21,6 +22,7 @@ Här kommer veckans recept. God spis!
    </div>
    <p className="text-right">Avbryt prenumerationen</p>
   </div>
+  <FavoriteRecipes/>
   <ShoppingList />
   <Saved />
     </>
