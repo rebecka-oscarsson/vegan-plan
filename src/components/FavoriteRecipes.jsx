@@ -10,6 +10,7 @@ import tempehskewers  from '../img/tempehskewers.jpg'
 const FavoriteRecipes = () => {
   return (
     <>
+    <h2>Veckans recept</h2>
     <div className="Favorite-Recipes-Grid">
         <div className="Favorite-Recipes-Card">
             <p>MÅNDAG</p>
