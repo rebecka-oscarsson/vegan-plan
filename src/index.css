@@ -216,10 +216,8 @@ a:active {
 }
 
 .recipes-carousel {
-  height: 500px;
   background-color: var(--color-grey);
   width: 100%;
-  display: relative;
   padding: 0;
   margin: 0;
   padding-top: 50px;
@@ -676,7 +674,6 @@ td {
   display: grid;
   grid-template-columns: auto auto auto;
   padding: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
   background-color: #f7f7f7;
 }
 .Recipe-Card {
@@ -699,7 +696,6 @@ td {
   display: grid;
   grid-template-columns: auto auto auto;
   padding: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
 }
 .Favorite-Recipes-Card {
   margin: 16px 40px;
