@@ -4,7 +4,8 @@ const FavoriteRecipes = () => {
     const [menuData, setMenuData] = useState([]);
 
     const fetchMenuData= async ()=>{
-        const res = await fetch('http://localhost:3001/weeklyMenu');
+        const res = await fetch(process.env.REACT_APP_DATABASE_URL+"weeklyMenu");
+            // 'http://localhost:3001/weeklyMenu'
         const data = await res.json();
         console.log("Weekly Menu:", data);
         return data;

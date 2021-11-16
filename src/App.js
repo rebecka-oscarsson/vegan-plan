@@ -26,9 +26,9 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
   // state som sparar recept användaren klickat på;
   const [oneRecipe, setOneRecipe] = useState("")
-
+// 'http://localhost:3001/results'
   useEffect(() => {
-    fetchData('http://localhost:3001/results') //tillfälligt för att spara på api-nyckeln
+    fetchData(process.env.REACT_APP_DATABASE_URL+"results") //tillfälligt för att spara på api-nyckeln
       // fetchData('https://api.spoonacular.com/recipes/complexSearch?apiKey=' + apiKey + '&diet=vegan&number=5')
       .then((data) => {
         setRecipes(data.results);
