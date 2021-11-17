@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
+import logo from '../img/vegan-plan-logo.png';
 
 function NavBar() {
   const [click, setClick] = useState(false);
@@ -12,7 +13,7 @@ function NavBar() {
         <div className='nav-container'>
           <NavLink exact to='/' className='nav-logo'>
             <img
-              src={'./vegan-plan-logo.png'}
+              src={logo}
               width={130}
               alt='Vegan Plan logo'
             />

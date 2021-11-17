@@ -24,6 +24,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 const App = () => {
   //state med hämtade recept i array
   const [recipes, setRecipes] = useState([]);
+  const [startRecipes, setstartRecipes] = useState([]);
   // state som sparar recept användaren klickat på;
   const [oneRecipe, setOneRecipe] = useState("")
 // 'http://localhost:3001/results'
@@ -32,6 +33,7 @@ const App = () => {
       // fetchData('https://api.spoonacular.com/recipes/complexSearch?apiKey=' + apiKey + '&diet=vegan&number=5')
       .then((data) => {
         setRecipes(data.results);
+        setstartRecipes(data.results);
       });
   }, []);
 
@@ -58,7 +60,7 @@ const App = () => {
         <Navbar />
         <div className='main'>
           <Routes>
-            <Route exact path='/' element={<Start recipes={recipes} setOneRecipe = {setOneRecipe}/>} />
+            <Route exact path='/' element={<Start recipes={startRecipes} setOneRecipe = {setOneRecipe}/>} />
             <Route
               path='/recept'
               element={
